@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  height: 120vh;
+}
+
+.header {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  height: 13%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0px 0px 4px 3px #ccc;
+          box-shadow: 0px 0px 4px 3px #ccc;
+}
+
+.header__image {
+  margin: 2% 5%;
+  height: 100%;
+  width: 50%;
+}
+
+.header__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  height: 100%;
+  width: 100%;
+  margin: 0 5%;
+}
+
+.header__container__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 36%;
+}
+
+.header__container__section__social {
+  width: 90%;
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+}
+
+.header__container__section__social--icons {
+  margin-right: 1%;
+  padding: 5px;
+  display: inline-block;
+}
+
+.header__container__section__request {
+  width: 25%;
+}
+
+.header__container__section__request--btn {
+  float: left;
+  background: #fd2500;
+  padding: 10px 8px;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+  -webkit-box-shadow: 0 3px 5px -1px #000;
+          box-shadow: 0 3px 5px -1px #000;
+  cursor: pointer;
+}
+
+.header__container__section__request--btn:hover {
+  padding-bottom: 18px;
+}
+
+.header__container__nav {
+  margin-top: 2.5%;
+  height: 50%;
+  width: 80%;
+  padding-left: 10%;
+}
+
+.header__container__nav__list {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__container__nav__list--item {
+  padding-bottom: 4.5%;
+  color: #5a5a5a;
+  font-size: 17px;
+  text-decoration: none;
+  font-family: Georgia, Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.header__container__nav__list--item:hover {
+  -webkit-box-shadow: inset 0 -3px 0px 0 orangered;
+          box-shadow: inset 0 -3px 0px 0 orangered;
+  cursor: pointer;
+}
+
+.wrapper-main {
+  height: 76%;
+  background-image: url("https://www.craterzone.com/wp-content/uploads/2014/06/Mobile-Solutions.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+@media (max-width: 500px) {
+  .header {
+    height: 20%;
+    margin: 0;
+  }
+  .header__image {
+    width: 40%;
+    margin-top: 20%;
+    padding-left: 30px;
+  }
+  .header__container {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-items: flex-end;
+  }
+  .header__container__section__social {
+    display: none;
+  }
+  .header__container__section__request {
+    width: 100%;
+  }
+  .header__container__section__request--btn {
+    float: right;
+  }
+  .header__container__nav {
+    display: none;
+  }
+  .wrapper-main {
+    height: 21%;
+    margin: 0;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
