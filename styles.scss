@@ -3,46 +3,102 @@
   padding: 0;
 }
 
+
 .wrapper {
-  height: 120vh;
+  height: 150vh;
+  &__sticky_header{
+    &__image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%; 
+    }
+    width: 100%;
+    background-color: #fff;
+    display: none;
+    box-shadow: 0px 0px 4px 3px #ccc;
+    justify-content: flex-start;
+    &__nav {
+      padding-top: 10px;
+      width: 50%;
+      &__list {
+        float: left;
+        width: 100%;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        &--item {
+          padding:2% 0;
+          color: #5a5a5a;
+          font-size: 18px;
+          text-decoration: none;
+          font-family: Georgia, Times, serif;
+          font-weight: 500;
+          font-style: italic;
+          letter-spacing: 2px;
+
+          &:hover {
+            transition: 0.5s;
+            box-shadow: inset 0 -3px 0px 0 rgb(255, 8, 0);
+            cursor: pointer;
+          }
+        }
+      }
+    
+    &__request {
+      height: 30px;
+      justify-items: center;
+      &--btn {
+        padding: 10px 5px;
+        height: 70%;
+        background: #fd2500;
+        color: #fff;
+        font-size: 15px;
+        z-index: 1;
+        transition: padding 0.5s;
+        box-shadow: 0 3px 5px -1px #000;
+        cursor: pointer;
+        &:hover {
+          padding-top: 16px;
+          padding-bottom: 16px;
+        }
+      }
+      }
+    }
+  }
 }
 
-.header {
-  transition: 0.5s;
-  height: 13%;
+.wrapper__header {
   display: flex;
   box-shadow: 0px 0px 4px 3px #ccc;
   &__image {
-    margin: 2% 5%;
-    height: 100%;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%; 
   }
   &__container {
-    display: flex;
-    flex-flow: wrap;
-    height: 100%;
-    width: 100%;
-    margin: 0 5%;
+    width: 60%;
     &__section {
       display: flex;
       width: 100%;
-      height: 36%;
       &__social {
-        width: 90%;
+        margin:1% 1% 0 1%;
+        width: 75%;
         border-bottom: 1px solid #ccc;
         text-align: right;
         &--icons {
-          margin-right: 1%;
-          padding: 5px;
-          display: inline-block;
+          padding:0 5px;
+          display: inline;
         }
       }
       &__request {
-        width: 25%;
+        height: 30px;
+        justify-items: center;
         &--btn {
-          float: left;
+          padding: 10px 5px;
+          height: 60%;
           background: #fd2500;
-          padding: 10px 8px;
           color: #fff;
           font-size: 14px;
           z-index: 1;
@@ -50,32 +106,33 @@
           box-shadow: 0 3px 5px -1px #000;
           cursor: pointer;
           &:hover {
-            padding-bottom: 18px;
+            padding-top: 14px;
+            padding-bottom: 14px;
           }
         }
       }
     }
     &__nav {
-      margin-top: 2.5%;
-      height: 50%;
-      width: 80%;
-      padding-left: 10%;
+      width: 90%;
       &__list {
+        float: right;
+        width: 90%;
         list-style-type: none;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         &--item {
-          padding-bottom: 4.5%;
+          padding:3.5% 0;
           color: #5a5a5a;
-          font-size: 17px;
+          font-size: 18px;
           text-decoration: none;
           font-family: Georgia, Times, serif;
           font-weight: 500;
           font-style: italic;
-          letter-spacing: 1px;
+          letter-spacing: 2px;
 
           &:hover {
-            box-shadow: inset 0 -3px 0px 0 orangered;
+            transition: 0.5s;
+            box-shadow: inset 0 -3px 0px 0 rgb(255, 8, 0);
             cursor: pointer;
           }
         }
@@ -84,22 +141,19 @@
   }
 }
 
-.wrapper-main {
-  height: 76%;
-  background-image: url("https://www.craterzone.com/wp-content/uploads/2014/06/Mobile-Solutions.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+.wrapper-main__img {
+  img{
+    height: 100%;
+    width: 100%;
+  }
 }
 
 @media (max-width: 500px) {
-  .header {
-    height: 20%;
-    margin: 0;
+  .wrapper__header {
     &__image {
-      width: 40%;
-      margin-top: 20%;
-      padding-left: 30px;
+      padding-left: 5%;
+      height: 20vh;
+      width: 80%; 
     }
     &__container {
       margin: 0;
@@ -111,6 +165,7 @@
         }
         &__request {
           width: 100%;
+          padding: 0 2px;
           &--btn {
             float: right;
           }
@@ -120,10 +175,5 @@
         display: none;
       }
     }
-  }
-
-  .wrapper-main {
-    height: 21%;
-    margin: 0;
   }
 }
