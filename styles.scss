@@ -3,15 +3,110 @@
   padding: 0;
 }
 
+@mixin spinner {
+  height: 4px;
+  background-color: #fff;
+  transition: all 0.3s;
+  border-radius: 4px;
+}
+
+#sidebarMenu {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  transform: translateX(-250px);
+  transition: transform 250ms ease-in-out;
+  background: #4e5052;
+}
+
+#openSidebarMenu:checked ~ #sidebarMenu {
+  transform: translateX(0);
+}
+
+input#openSidebarMenu {
+  display: none;
+}
+
+#openSidebarMenu:checked ~ #side {
+  transform: translateX(250px);
+}
+
+#openSidebarMenu:checked ~ #wrapper_move {
+  transform: translateX(250px);
+}
 
 .wrapper {
+  transition: 0.3s;
   height: 150vh;
-  &__sticky_header{
+  &__sidebarIconToggle {
+    display: none;
+    background: #4e5052;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+    cursor: pointer;
+    &__spinner {
+      &--first {
+        @include spinner;
+        margin: 10px 8px 3px;
+      }
+      &--second {
+        @include spinner;
+        margin: 3px 8px 3px;
+      }
+      &--third {
+        @include spinner;
+        margin: 3px 8px 10px;
+      }
+    }
+  }
+  &__sideBar-menu{
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+    &--header {
+      font-family: Lato, Arial, Helvetica, Verdana, sans-serif;
+      font-style: normal;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 22px;
+      line-height: 34px;
+      letter-spacing: 2px;
+      color: #eee;
+      padding: 5px 0 5px 25px;
+      margin: 0;
+      padding: 0 8px;
+      background: #4e5052;
+      border-bottom: 1.5px inset rgba(255, 255, 255, 0.1);
+    }
+    li {
+      border-bottom: 1px inset rgba(255, 255, 255, 0.1);
+      list-style: none;
+      text-transform: none;
+      a {
+        padding: 5% 3%;
+        display: block;
+        color: white;
+        font-size: 13px;
+        text-decoration: none;
+        font-family: Georgia, Times, serif;
+        font-weight: 200;
+      }
+    }
+  }
+
+  &__sticky_header {
     &__image {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 40%; 
+      width: 40%;
     }
     width: 100%;
     background-color: #fff;
@@ -28,7 +123,7 @@
         display: flex;
         justify-content: space-around;
         &--item {
-          padding:2% 0;
+          padding: 2% 0;
           color: #5a5a5a;
           font-size: 18px;
           text-decoration: none;
@@ -44,25 +139,25 @@
           }
         }
       }
-    
-    &__request {
-      height: 30px;
-      justify-items: center;
-      &--btn {
-        padding: 10px 5px;
-        height: 70%;
-        background: #fd2500;
-        color: #fff;
-        font-size: 15px;
-        z-index: 1;
-        transition: padding 0.5s;
-        box-shadow: 0 3px 5px -1px #000;
-        cursor: pointer;
-        &:hover {
-          padding-top: 16px;
-          padding-bottom: 16px;
+
+      &__request {
+        height: 30px;
+        justify-items: center;
+        &--btn {
+          padding: 10px 5px;
+          height: 70%;
+          background: #fd2500;
+          color: #fff;
+          font-size: 15px;
+          z-index: 1;
+          transition: padding 0.5s;
+          box-shadow: 0 3px 5px -1px #000;
+          cursor: pointer;
+          &:hover {
+            padding-top: 16px;
+            padding-bottom: 16px;
+          }
         }
-      }
       }
     }
   }
@@ -75,7 +170,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%; 
+    width: 40%;
   }
   &__container {
     width: 60%;
@@ -83,12 +178,12 @@
       display: flex;
       width: 100%;
       &__social {
-        margin:1% 1% 0 1%;
+        margin: 1% 1% 0 1%;
         width: 75%;
         border-bottom: 1px solid #ccc;
         text-align: right;
         &--icons {
-          padding:0 5px;
+          padding: 0 5px;
           display: inline;
         }
       }
@@ -121,7 +216,7 @@
         display: flex;
         justify-content: space-around;
         &--item {
-          padding:3.5% 0;
+          padding: 3.5% 0;
           color: #5a5a5a;
           font-size: 18px;
           text-decoration: none;
@@ -142,18 +237,30 @@
 }
 
 .wrapper-main__img {
-  img{
+  height: auto;
+  img {
     height: 100%;
     width: 100%;
   }
 }
 
 @media (max-width: 500px) {
+
+  .wrapper{
+    &__sidebarIconToggle {
+    display: block;
+  }
+}
+
+.wrapper__sticky_header{
+  display: none;
+}
   .wrapper__header {
+    width: 100%;
     &__image {
-      padding-left: 5%;
-      height: 20vh;
-      width: 80%; 
+      padding-top: 10%;
+      padding-left: 25%;
+      height: 15vh;
     }
     &__container {
       margin: 0;
