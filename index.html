@@ -142,26 +142,25 @@
     </div>
 
     <script type="text/javascript">
-      var lastScrollTop = 0;
       header = document.getElementById("headerId");
       stickyHeader = document.getElementById("sticky_header");
       window.addEventListener("scroll", function () {
         var screen_size = window.matchMedia("(min-width: 500px)");
-        var scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop && screen_size.matches) {
-          header.style.scrollTop = "-18%";
-          stickyHeader.style.display = "flex";
-          header.style.transition = "0.5s";
-          stickyHeader.style.transition = "0.5s";
+        var scrollTop = window.pageYOffset;
+        if (scrollTop > 30 && screen_size.matches) {
+          header.style.scrollTop = scrollTop;
+          header.style.transition = "ease-out";
           header.style.display = "none";
+          stickyHeader.style.display = "flex";
+          stickyHeader.style.animation = "show_sticky-header 0.5s";
+          lastScrollTop = scrollTop;
         } else {
-          header.style.scrollTop = "0";
+          header.style.scrollTop = "30";
           stickyHeader.style.display = "none";
           stickyHeader.style.position = "fixed";
+          header.style.transition = "ease-in";
           header.style.display = "flex";
         }
-        lastScrollTop = scrollTop;
       });
     </script>
   </body>
